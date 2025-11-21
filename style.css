@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+:root {
+    --first: #f0ead2;
+    --second: #dde5b6;
+    --third: #adc178;
+    --fourth: #a98467;
+    --fifth: #6c584c;
+}
+.screen {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+
+
+/* - - - LOADING SCREEN - - - */
+#loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("assets/loading-banner.png");
+    background-size: auto 100vh;
+    background-position: 30%;
+    z-index: 1000;
+}
+#loading-screen #fade-bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--third);
+    opacity: 0.8;
+    z-index: 5;
+    transition: opacity 0.5s;
+}
+#loading-screen #icon {
+    width: calc(6vw + 150px);
+    aspect-ratio: 1 / 1;
+    border: calc(0.8vw + 3px) solid white;
+    border-radius: 100%;
+    background-color: white;
+    z-index: 10;
+    animation: loading-screen-icon 1.5s ease-in-out forwards infinite;
+}
+#loading-screen.off {
+    transition: translate 1s ease-in-out;
+    translate: 0 -100vh;
+}
+#loading-screen.off #fade-bg {
+    opacity: 1;
+}
+@keyframes loading-screen-icon {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+/* - - - - - HEADER - - - - - */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 13vh;
+    background-color: var(--third);
+    border-bottom: calc(0.2vw + 3px) solid var(--second);
+}
+#header-logo {
+    height: 8vh;
+    border: 3px white solid;
+    border-radius: 100%;
+    margin-left: calc(1vw + 25px);
+}
+header a {
+    position: absolute;
+    width: 100vw;
+    height: 10vh;
+}
+
+/* - - - - - MAIN - - - - - */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(50vw + 180px);
+    padding: calc(3vw + 50px);
+    margin: auto;
+}
+main #functions-list {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+}
